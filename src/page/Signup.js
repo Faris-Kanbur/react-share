@@ -27,13 +27,35 @@ function Signup() {
             <form onSubmit={formik.handleSubmit}>
                 <Grid container spacing={3}>
                 <Grid item xs={12}>   
-                    <TextField name="dispalyName" value={formik.values.displayName} onChange={formik.handleChange} label="Display Name" variant="outlined"  fullWidth/>
+                    <TextField 
+                        name="dispalyName" 
+                        label="Display Name" 
+                        variant="outlined"  
+                        fullWidth
+                        value={formik.values.displayName} 
+                        onChange={formik.handleChange} 
+                        />
                 </Grid>         
                 <Grid item xs={12}>       
-                    <TextField name="email" value={formik.values.email} onChange={formik.handleChange} label="Email" variant="outlined"  fullWidth/>
+                    <TextField 
+                        name="email" 
+                        label="Email" 
+                        variant="outlined"  
+                        fullWidth
+                        value={formik.values.email} 
+                        onChange={formik.handleChange} 
+                        />
                 </Grid>
                 <Grid item xs={12}>   
-                    <TextField  name="Password" value={formik.values.password} onChange={formik.handleChange} label="Password" variant="outlined"  fullWidth/>
+                    <TextField 
+                        name="Password" 
+                        label="Password" 
+                        variant="outlined"  
+                        type="password"
+                        fullWidth
+                        value={formik.values.password} 
+                        onChange={formik.handleChange} 
+                        />
                 </Grid>
 
                 <Grid item xs={12}>   
