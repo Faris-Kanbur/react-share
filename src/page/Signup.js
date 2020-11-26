@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, TextField, Grid, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useFormik } from 'formik';
+import firebase from "../firebase/firebase.utils";
+
 
 const styles = makeStyles({
     wrapper: {
@@ -26,45 +28,45 @@ function Signup() {
         <Container className={signupStyles.wrapper} maxWidth="sm">
             <form onSubmit={formik.handleSubmit}>
                 <Grid container spacing={3}>
-                <Grid item xs={12}>   
-                    <TextField 
-                        name="dispalyName" 
-                        label="Display Name" 
-                        variant="outlined"  
-                        fullWidth
-                        value={formik.values.displayName} 
-                        onChange={formik.handleChange} 
-                        />
-                </Grid>         
-                <Grid item xs={12}>       
-                    <TextField 
-                        name="email" 
-                        label="Email" 
-                        variant="outlined"  
-                        fullWidth
-                        value={formik.values.email} 
-                        onChange={formik.handleChange} 
-                        />
-                </Grid>
-                <Grid item xs={12}>   
-                    <TextField 
-                        name="Password" 
-                        label="Password" 
-                        variant="outlined"  
-                        type="password"
-                        fullWidth
-                        value={formik.values.password} 
-                        onChange={formik.handleChange} 
-                        />
-                </Grid>
+                    <Grid item xs={12}>       
+                        <TextField 
+                            name="displayName" 
+                            label="displayName" 
+                            variant="outlined"  
+                            fullWidth
+                            value={formik.values.displayName} 
+                            onChange={formik.handleChange} 
+                            />
+                    </Grid>        
+                    <Grid item xs={12}>       
+                        <TextField 
+                            name="email" 
+                            label="Email" 
+                            variant="outlined"  
+                            fullWidth
+                            value={formik.values.email} 
+                            onChange={formik.handleChange} 
+                            />
+                    </Grid>
+                    <Grid item xs={12}>       
+                        <TextField 
+                            name="password" 
+                            label="Password" 
+                            variant="outlined"
+                            type="password"  
+                            fullWidth
+                            value={formik.values.password} 
+                            onChange={formik.handleChange} 
+                            />
+                    </Grid>
 
-                <Grid item xs={12}>   
-                    <Button type="submit" color="primary" variant="contained" fullWidth>Submit</Button>
+                    <Grid item xs={12}>   
+                        <Button type="submit" color="primary" variant="contained" fullWidth>Submit</Button>
+                    </Grid>
+                    <Grid item xs={12}>   
+                        <Button color="primary" variant="contained" fullWidth>Signup with Google</Button>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>   
-                    <Button color="primary" variant="contained" fullWidth>Signup with Google</Button>
-                </Grid>
-            </Grid>
             </form> 
         </Container>
     )

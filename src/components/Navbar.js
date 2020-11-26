@@ -58,6 +58,7 @@ export default function Navbar() {
                 onClick={handleMenu}
                 color="inherit"
               >
+                 Faris Kanbur 
                 <AccountCircle />
               </IconButton>
               <Menu
