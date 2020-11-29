@@ -27,7 +27,11 @@ const devConfig = {
             this.firebaseAuth.createUserWithEmailAndPassword(email, password)
         }
 
-
+        useGoogleProvider(){
+            const gooogleProvider = new firebase.auth.GoogleAuthProvider();
+            gooogleProvider.setCustomParameters({ prompt: "select_account"});
+            this.firebaseAuth.signInWithPopup(gooogleProvider);
+        }
 
 
   }

@@ -25,6 +25,12 @@ function Signup() {
       });
 
     const signupStyles= styles();
+
+    const handleGoogleButtonClick = () =>{
+        firebase.useGoogleProvider();
+    } 
+
+
     return (
         <Container className={signupStyles.wrapper} maxWidth="sm">
             <form onSubmit={formik.handleSubmit}>
@@ -62,10 +68,15 @@ function Signup() {
                     </Grid>
 
                     <Grid item xs={12}>   
-                        <Button type="submit" color="primary" variant="contained" fullWidth>Submit</Button>
+                        <Button type="submit" color="primary" variant="contained" fullWidth>Register</Button>
                     </Grid>
                     <Grid item xs={12}>   
-                        <Button color="primary" variant="contained" fullWidth>Signup with Google</Button>
+                        <Button 
+                            onClick={handleGoogleButtonClick}
+                            color="primary" 
+                            variant="contained" 
+                            fullWidth>Signup with Google
+                        </Button>
                     </Grid>
                 </Grid>
             </form> 
