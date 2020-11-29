@@ -18,8 +18,9 @@ function Signup() {
           email: '',
           password: '',
         },
-        onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+        onSubmit: (values) => {
+        //   alert(JSON.stringify(values, null, 2));
+        firebase.register(values.email, values.password);
         },
       });
 

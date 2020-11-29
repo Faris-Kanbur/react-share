@@ -21,8 +21,15 @@ const devConfig = {
   class Firebase {
       constructor(){
           firebase.initializeApp(config);
-          this.firebase = firebase.auth();
+          this.firebaseAuth = firebase.auth();
       }
+        register(email, password) {
+            this.firebaseAuth.createUserWithEmailAndPassword(email, password)
+        }
+
+
+
+
   }
 
   export default new Firebase();
