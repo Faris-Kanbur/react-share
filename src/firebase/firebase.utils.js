@@ -23,8 +23,12 @@ const devConfig = {
           firebase.initializeApp(config);
           this.firebaseAuth = firebase.auth();
       }
-        register(email, password) {
-            this.firebaseAuth.createUserWithEmailAndPassword(email, password)
+       async register(displayName,email, password) {
+            await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
+
+            this.firebaseAuth.currentUser.updateProfile({
+                displayName,
+            });
         }
 
         useGoogleProvider(){
@@ -33,6 +37,14 @@ const devConfig = {
             this.firebaseAuth.signInWithPopup(gooogleProvider);
         }
 
+        
+        signIn (email, password) {
+            this.firebaseAuth.signInWithEmailAndPassword(email,password)
+        }
+        
+        signOut () {
+            this.firebaseAuth.signOut();
+        }
 
   }
 

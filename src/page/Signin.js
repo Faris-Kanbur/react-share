@@ -26,7 +26,7 @@ function Signin() {
     } 
 
     const handleFormSubmit = (values) => {
-        alert()
+        firebase.signIn(values.email, values.password)
     }
 
 
