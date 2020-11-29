@@ -14,8 +14,7 @@ const stylesFunc = makeStyles({
 const initialValues = {
       email: '',
       password: '',
-    },
-
+    }
 
 
 function Signin() {

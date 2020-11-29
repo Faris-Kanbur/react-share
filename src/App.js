@@ -1,12 +1,9 @@
-import Navbar from './components/Navbar';
-import Signup from './page/Signup';
+import AppRouter from './Router/Router';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Signup />
-     
+        <AppRouter />
     </div>
   );
 }
