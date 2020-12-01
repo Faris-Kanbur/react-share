@@ -18,17 +18,21 @@ const config = process.env.NODE_ENV === "development" ? devConfig : prodConfig;
 
 class Firebase {
   constructor() {
-    //TODO: add initialize check
+    //TODO: add initialize check :: if (firebase.apps.length === 0)
     firebase.initializeApp(config);
     this.firebaseAuth = firebase.auth();
   }
 
   // register registerWithEmailAndPassword
   async register(displayName, email, password) {
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password);
-    this.firebaseAuth.currentUser.updateProfile({
-      displayName,
-    });
+    try {
+      await this.firebaseAuth.createUserWithEmailAndPassword(email, password);
+      this.firebaseAuth.currentUser.updateProfile({
+        displayName,
+      });
+    } catch (err) {
+      console.log("F. Error:", err);
+    }
   }
 
   // sign in/up with google GoogleAuthProvider

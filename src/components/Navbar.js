@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext, useCallback, useMemo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
+import Link from "@material-ui/core/Link";
 import Menu from "@material-ui/core/Menu";
 import { FirebaseAuthContext } from "../context/AuthContext";
 import firebase from "../firebase/firebase.utils";
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
   const { currentUser } = useContext(FirebaseAuthContext);
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
@@ -33,9 +34,17 @@ export default function Navbar() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const bigData = useMemo(
+    () => ({
+      a: "a",
+      b: "b",
+    }),
+    []
+  );
+
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  }, []);
 
   const handleSignOut = useCallback(() => {
     firebase.signOut();
@@ -89,9 +98,28 @@ export default function Navbar() {
               </Menu>
             </div>
           )}
-          {/* 
-          //TODO: login & Register Links
-          */}
+
+          <MenuItem
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              window.location.href = "/login";
+            }}
+          >
+            Sign in
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              window.location.href = "/register";
+            }}
+          >
+            Sign up
+          </MenuItem>
         </Toolbar>
       </AppBar>
     </div>
